@@ -2,6 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+const developerData = [
+  {
+    name: "Fintan Spruce",
+    description:
+      "Junior full-stack developer, looking to break into the tech industry. When not coding or learning new things, I like to play videogames, cook great food, and watch copious amounts of Doctor Who!",
+    image: "/fintan.jpg",
+    skillset: ["HTML", "CSS", "Python", "Git and GitHub", "React", "C#"],
+  },
+];
+
 function App() {
   return (
     <div className="card">
