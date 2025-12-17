@@ -4,11 +4,26 @@ import "./index.css";
 
 function App() {
   return (
-    <div>
-      <h1>Hello React!</h1>
+    <div className="card">
+      <Avatar />
+      <div className="data">
+        <Intro />
+        {/* 
+        Should contain one Skill component for each
+        web dev skill that you have, customised with
+        props.
+        */}
+        <SkillList />
+      </div>
     </div>
   );
 }
+
+function Avatar() {}
+
+function Intro() {}
+
+function SkillList() {}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
