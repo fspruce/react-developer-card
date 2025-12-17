@@ -128,6 +128,7 @@ root.render(
   </React.StrictMode>
 );
 
-function getDev(id) {
-  return devData.filter((dev) => dev.id === id)[0];
-}
+// Use function if specific filtering of developers is required before displaying the cards.
+// function getDev(id) {
+//   return devData.filter((dev) => dev.id === id)[0];
+// }
