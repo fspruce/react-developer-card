@@ -24,7 +24,7 @@ function Card(props) {
     <div className="card">
       <Avatar imageSrc={data.image} altText={data.name} />
       <div className="data">
-        <Intro />
+        <Intro name={data.name} description={data.description} />
         {/* 
         Should contain one Skill component for each
         web dev skill that you have, customised with
@@ -40,7 +40,14 @@ function Avatar(props) {
   return <img src={props.imageSrc} alt={props.altText} className="avatar" />;
 }
 
-function Intro() {}
+function Intro(props) {
+  return (
+    <main>
+      <h1>{props.name}</h1>
+      <p>{props.description}</p>
+    </main>
+  );
+}
 
 function SkillList() {}
 
