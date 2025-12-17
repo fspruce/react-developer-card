@@ -2,6 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+const emojis = {
+  strong: "strong",
+  good: "good",
+  learning: "learning",
+};
+
 const developerData = [
   {
     id: 1,
@@ -9,7 +15,14 @@ const developerData = [
     description:
       "Junior full-stack developer, looking to break into the tech industry. When not coding or learning new things, I like to play videogames, cook great food, and watch copious amounts of Doctor Who!",
     image: "/fintan.jpg",
-    skillset: ["HTML", "CSS", "Python", "Git and GitHub", "React", "C#"],
+    skillset: [
+      ["HTML", emojis.strong],
+      ["CSS", emojis.strong],
+      ["Python", emojis.good],
+      ["Git and GitHub", emojis.strong],
+      ["React", emojis.learning],
+      ["C#", emojis.learning],
+    ],
   },
 ];
 
@@ -30,7 +43,7 @@ function Card(props) {
         web dev skill that you have, customised with
         props.
         */}
-        <SkillList />
+        <SkillList skillset={data.skillset} />
       </div>
     </div>
   );
@@ -49,7 +62,36 @@ function Intro(props) {
   );
 }
 
-function SkillList() {}
+function SkillList(props) {
+  const listComponents = [];
+
+  props.skillset.forEach((skill) => {
+    listComponents.push(
+      <SkillItem key={skill} text={skill[0]} emoji={skill[1]} />
+    );
+  });
+
+  return <div className="skill-list">{listComponents}</div>;
+}
+
+function SkillItem(props) {
+  let emoji = "";
+  if (props.emoji === "strong") {
+    emoji = "💪";
+  } else if (props.emoji === "good") {
+    emoji = "👍";
+  } else if (props.emoji === "learning") {
+    emoji = "🎓";
+  } else {
+    emoji = "NaN";
+  }
+  const className = `skill ${props.emoji}`;
+  return (
+    <span className={className}>
+      {props.text} {emoji}
+    </span>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
