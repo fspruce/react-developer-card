@@ -2,12 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-const emojis = {
-  strong: "strong",
-  good: "good",
-  learning: "learning",
-};
-
 const devData = [
   {
     id: 1,
@@ -16,12 +10,12 @@ const devData = [
       "Junior full-stack developer, looking to break into the tech industry. When not coding or learning new things, I like to play videogames, cook great food, and watch copious amounts of Doctor Who!",
     image: "dev-images/fintan.jpg",
     skillset: [
-      ["HTML", emojis.strong],
-      ["CSS", emojis.strong],
-      ["JavaScript", emojis.strong],
-      ["Git and GitHub", emojis.good],
-      ["React", emojis.learning],
-      ["C#", emojis.learning],
+      ["HTML", "strong"],
+      ["CSS", "strong"],
+      ["JavaScript", "strong"],
+      ["Git and GitHub", "good"],
+      ["React", "learning"],
+      ["C#", "learning"],
     ],
   },
   {
@@ -30,11 +24,11 @@ const devData = [
     description: "Musician turned developer, looking to have an ape of a time!",
     image: "dev-images/blonde_robbie_monkey.png",
     skillset: [
-      ["Python", emojis.strong],
-      ["C++", emojis.strong],
-      ["Git and GitHub", emojis.strong],
-      ["Django", emojis.good],
-      ["SQL", emojis.learning],
+      ["Python", "strong"],
+      ["C++", "strong"],
+      ["Git and GitHub", "strong"],
+      ["Django", "good"],
+      ["SQL", "learning"],
     ],
   },
   {
@@ -44,11 +38,11 @@ const devData = [
       "Musician turned developer, inspired by the story of Robbie. Once a member of the largest band of all time, now working with computers. We made the way with apple, how much more difficult could it be?",
     image: "dev-images/john-lennon.png",
     skillset: [
-      ["BASIC", emojis.strong],
-      ["FORTRAN", emojis.good],
-      ["COBOL", emojis.good],
-      ["Pascal", emojis.learning],
-      ["C", emojis.learning],
+      ["BASIC", "strong"],
+      ["FORTRAN", "good"],
+      ["COBOL", "good"],
+      ["Pascal", "learning"],
+      ["C", "learning"],
     ],
   },
 ];
