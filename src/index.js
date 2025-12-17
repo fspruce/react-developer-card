@@ -13,11 +13,16 @@ const developerData = [
   },
 ];
 
-function App(props) {
-  console.log(props);
+function App() {
+  const data = getDeveloper(1);
+  return <Card data={data} />;
+}
+
+function Card(props) {
+  const data = props.data;
   return (
     <div className="card">
-      <Avatar />
+      <Avatar imageSrc={data.image} altText={data.name} />
       <div className="data">
         <Intro />
         {/* 
@@ -31,7 +36,9 @@ function App(props) {
   );
 }
 
-function Avatar() {}
+function Avatar(props) {
+  return <img src={props.imageSrc} alt={props.altText} className="avatar" />;
+}
 
 function Intro() {}
 
@@ -40,7 +47,7 @@ function SkillList() {}
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App data={getDeveloper(1)} />
+    <App />
   </React.StrictMode>
 );
 
