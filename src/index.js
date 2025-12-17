@@ -4,6 +4,7 @@ import "./index.css";
 
 const developerData = [
   {
+    id: 1,
     name: "Fintan Spruce",
     description:
       "Junior full-stack developer, looking to break into the tech industry. When not coding or learning new things, I like to play videogames, cook great food, and watch copious amounts of Doctor Who!",
@@ -12,7 +13,8 @@ const developerData = [
   },
 ];
 
-function App() {
+function App(props) {
+  console.log(props);
   return (
     <div className="card">
       <Avatar />
@@ -38,6 +40,10 @@ function SkillList() {}
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <App data={getDeveloper(1)} />
   </React.StrictMode>
 );
+
+function getDeveloper(id) {
+  return developerData.filter((dev) => dev.id === id)[0];
+}
