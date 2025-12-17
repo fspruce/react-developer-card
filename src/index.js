@@ -14,7 +14,7 @@ const devData = [
     name: "Fintan Spruce",
     description:
       "Junior full-stack developer, looking to break into the tech industry. When not coding or learning new things, I like to play videogames, cook great food, and watch copious amounts of Doctor Who!",
-    image: "/fintan.jpg",
+    image: "dev-images/fintan.jpg",
     skillset: [
       ["HTML", emojis.strong],
       ["CSS", emojis.strong],
@@ -28,13 +28,27 @@ const devData = [
     id: 2,
     name: "Robbie Williams",
     description: "Musician turned developer, looking to have an ape of a time!",
-    image: "/blonde_robbie_monkey.png",
+    image: "dev-images/blonde_robbie_monkey.png",
     skillset: [
       ["Python", emojis.strong],
       ["C++", emojis.strong],
       ["Git and GitHub", emojis.strong],
       ["Django", emojis.good],
       ["SQL", emojis.learning],
+    ],
+  },
+  {
+    id: 3,
+    name: "John Lennon",
+    description:
+      "Musician turned developer, inspired by the story of Robbie. Once a member of the largest band of all time, now working with computers. We made the way with apple, how much more difficult could it be?",
+    image: "dev-images/john-lennon.png",
+    skillset: [
+      ["BASIC", emojis.strong],
+      ["FORTRAN", emojis.good],
+      ["COBOL", emojis.good],
+      ["Pascal", emojis.learning],
+      ["C", emojis.learning],
     ],
   },
 ];
