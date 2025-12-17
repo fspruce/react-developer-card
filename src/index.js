@@ -8,7 +8,7 @@ const emojis = {
   learning: "learning",
 };
 
-const developerData = [
+const devData = [
   {
     id: 1,
     name: "Fintan Spruce",
@@ -18,17 +18,31 @@ const developerData = [
     skillset: [
       ["HTML", emojis.strong],
       ["CSS", emojis.strong],
-      ["Python", emojis.good],
-      ["Git and GitHub", emojis.strong],
+      ["JavaScript", emojis.strong],
+      ["Git and GitHub", emojis.good],
       ["React", emojis.learning],
       ["C#", emojis.learning],
+    ],
+  },
+  {
+    id: 2,
+    name: "Robbie Williams",
+    description: "Musician turned developer, looking to have an ape of a time!",
+    image: "/blonde_robbie_monkey.png",
+    skillset: [
+      ["Python", emojis.strong],
+      ["C++", emojis.strong],
+      ["Git and GitHub", emojis.strong],
+      ["Django", emojis.good],
+      ["SQL", emojis.learning],
     ],
   },
 ];
 
 function App() {
-  const data = getDeveloper(1);
-  return <Card data={data} />;
+  const cards = [];
+  devData.forEach((dev) => cards.push(<Card data={dev} />));
+  return cards;
 }
 
 function Card(props) {
@@ -100,6 +114,6 @@ root.render(
   </React.StrictMode>
 );
 
-function getDeveloper(id) {
-  return developerData.filter((dev) => dev.id === id)[0];
+function getDev(id) {
+  return devData.filter((dev) => dev.id === id)[0];
 }
