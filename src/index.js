@@ -41,8 +41,8 @@ const devData = [
 
 function App() {
   const cards = [];
-  devData.forEach((dev) => cards.push(<Card data={dev} />));
-  return cards;
+  devData.forEach((dev) => cards.push(<Card key={dev.id} data={dev} />));
+  return <div className="cards-container">{cards}</div>;
 }
 
 function Card(props) {
