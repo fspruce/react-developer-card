@@ -2,6 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
+const emoji = {
+  strong: "💪",
+  good: "👍",
+  learning: "🎓",
+};
+
 const devData = [
   {
     id: 1,
@@ -48,70 +54,62 @@ const devData = [
 ];
 
 function App() {
-  const cards = [];
-  devData.forEach((dev) => cards.push(<Card key={dev.id} data={dev} />));
-  return <div className="cards-container">{cards}</div>;
+  const devs = devData;
+  const numDevs = devs.length;
+  return numDevs > 0 ? (
+    <ul className="cards-container">
+      {devs.map((dev) => (
+        <Card devObj={dev} key={dev.id} />
+      ))}
+    </ul>
+  ) : null;
 }
 
-function Card(props) {
-  const data = props.data;
+function Card({ devObj }) {
   return (
-    <div className="card">
-      <Avatar imageSrc={data.image} altText={data.name} />
+    <li className="card">
+      <Avatar imageSrc={devObj.image} altText={devObj.name} />
       <div className="data">
-        <Intro name={data.name} description={data.description} />
+        <Intro name={devObj.name} description={devObj.description} />
         {/* 
         Should contain one Skill component for each
         web dev skill that you have, customised with
         props.
         */}
-        <SkillList skillset={data.skillset} />
+        <SkillList skillset={devObj.skillset} />
       </div>
-    </div>
+    </li>
   );
 }
 
-function Avatar(props) {
-  return <img src={props.imageSrc} alt={props.altText} className="avatar" />;
+function Avatar({ imageSrc, altText }) {
+  return <img src={imageSrc} alt={altText} className="avatar" />;
 }
 
-function Intro(props) {
+function Intro({ name, description }) {
   return (
     <main>
-      <h1>{props.name}</h1>
-      <p>{props.description}</p>
+      <h1>{name}</h1>
+      <p>{description}</p>
     </main>
   );
 }
 
-function SkillList(props) {
-  const listComponents = [];
-
-  props.skillset.forEach((skill) => {
-    listComponents.push(
-      <SkillItem key={skill} text={skill[0]} emoji={skill[1]} />
-    );
-  });
-
-  return <div className="skill-list">{listComponents}</div>;
+function SkillList({ skillset }) {
+  return (
+    <ul className="skill-list">
+      {skillset.map((skill) => (
+        <SkillItem key={skill[0]} text={skill[0]} emojiName={skill[1]} />
+      ))}
+    </ul>
+  );
 }
 
-function SkillItem(props) {
-  let emoji = "";
-  if (props.emoji === "strong") {
-    emoji = "💪";
-  } else if (props.emoji === "good") {
-    emoji = "👍";
-  } else if (props.emoji === "learning") {
-    emoji = "🎓";
-  } else {
-    emoji = "NaN";
-  }
-  const className = `skill ${props.emoji}`;
+function SkillItem({ text, emojiName }) {
   return (
-    <span className={className}>
-      {props.text} {emoji}
-    </span>
+    <li className={`skill ${emojiName}`}>
+      {text} {emoji[emojiName]}
+    </li>
   );
 }
 
